@@ -9,16 +9,16 @@ export const ProfileContainer = styled.div`
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
   display: flex;
   gap: 2rem;
-
-  img {
-    width: 9.25rem;
-    height: 9.25rem;
-    border-radius: 8px;
-    object-fit: cover;
-  }
 `
 
-export const DescriptionContainer = styled.div`
+export const ProfileAvatar = styled.img`
+  width: 9.25rem;
+  height: 9.25rem;
+  border-radius: 8px;
+  object-fit: cover;
+`
+
+export const ProfileDetails = styled.div`
   width: 100%;
 
   header {
@@ -26,6 +26,11 @@ export const DescriptionContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  & > p {
+    margin-bottom: 1.5rem;
   }
 `
 
@@ -35,12 +40,12 @@ export const LinkToAnotherPage = styled.a`
   justify-content: center;
   gap: 0.5rem;
   text-transform: uppercase;
-  font-size: 0.75rem;
+  font-size: ${({ theme }) => theme.textSizes['components-link']};
   font-weight: 700;
   color: ${({ theme }) => theme.colors['brand-color']};
 `
 
-export const InfoContainer = styled.div`
+export const ProfileInfoContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;

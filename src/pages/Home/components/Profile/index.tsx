@@ -1,14 +1,24 @@
-import { TitleText } from '../../../../components/Typography'
-import { FaExternalLinkAlt } from 'react-icons/fa'
+import { RegularText, TitleText } from '../../../../components/Typography'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faArrowUpRightFromSquare,
+  faBuilding,
+  faUserGroup,
+} from '@fortawesome/free-solid-svg-icons'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { InfoWithIcon } from '../../../../components/InfoWithIcon'
+import { useTheme } from 'styled-components'
+
 import * as S from './styles'
 
 export function Profile() {
-  const imgAvatar = 'https://avatars.githubusercontent.com/u/71723595?v=4'
+  const { colors } = useTheme()
+  const imgAvatar = 'https://github.com/pabloxt14.png'
 
   return (
     <S.ProfileContainer>
-      <img src={imgAvatar} alt="" />
-      <S.DescriptionContainer>
+      <S.ProfileAvatar src={imgAvatar} alt="" />
+      <S.ProfileDetails>
         <header>
           <TitleText size="xl" color="title">
             Cameron Williamson
@@ -18,19 +28,32 @@ export function Profile() {
             target="_blank"
           >
             Github
-            <FaExternalLinkAlt size={12} />
+            <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
           </S.LinkToAnotherPage>
         </header>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque,
-          tempora?
-        </p>
-        <S.InfoContainer>
-          <div>😺 cameronwll</div>
-          <div>🚀 Rocketseat</div>
-          <div>🙍‍♂️ 32 seguidores</div>
-        </S.InfoContainer>
-      </S.DescriptionContainer>
+        <RegularText color="text" size="m">
+          Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
+          viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat
+          pulvinar vel mass.
+        </RegularText>
+        <S.ProfileInfoContainer>
+          <InfoWithIcon
+            text="cameronwll"
+            icon={<FontAwesomeIcon icon={faGithub} />}
+            iconColor={colors['base-label']}
+          />
+          <InfoWithIcon
+            text="Rocketseat"
+            icon={<FontAwesomeIcon icon={faBuilding} />}
+            iconColor={colors['base-label']}
+          />
+          <InfoWithIcon
+            text="32 seguidores"
+            icon={<FontAwesomeIcon icon={faUserGroup} />}
+            iconColor={colors['base-label']}
+          />
+        </S.ProfileInfoContainer>
+      </S.ProfileDetails>
     </S.ProfileContainer>
   )
 }

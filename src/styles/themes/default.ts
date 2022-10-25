@@ -29,6 +29,8 @@ export const defaultTheme = {
     'text-bold-m': '1rem',
     'text-regular-s': '0.875rem',
     'text-bold-s': '0.875rem',
+
+    'components-link': '0.75rem',
   },
   fonts: {
     default: "'Nunito'",

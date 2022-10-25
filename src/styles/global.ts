@@ -42,6 +42,10 @@ export const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 
+  ul {
+    list-style: none;
+  }
+
   button {
     cursor: pointer;
   }
