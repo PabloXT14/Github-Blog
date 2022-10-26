@@ -9,6 +9,7 @@ export const GlobalStyles = createGlobalStyle`
 
   :focus {
     outline: none;
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors['brand-color']};
   }
 
   ::-webkit-scrollbar {

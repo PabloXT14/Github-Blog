@@ -27,22 +27,15 @@ export const ProfileDetails = styled.div`
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0.5rem;
+
+    h2 {
+      line-height: 130%;
+    }
   }
 
   & > p {
     margin-bottom: 1.5rem;
   }
-`
-
-export const LinkToAnotherPage = styled.a`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  text-transform: uppercase;
-  font-size: ${({ theme }) => theme.textSizes['components-link']};
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors['brand-color']};
 `
 
 export const ProfileInfoContainer = styled.div`
