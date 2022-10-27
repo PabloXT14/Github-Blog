@@ -4,18 +4,18 @@ import * as S from './styles'
 type ExternalLinkProps = ComponentProps<typeof S.ExternalLinkContainer> & {
   text: string
   icon: ReactNode
-  direction: 'leftToRight' | 'rightToLeft'
+  iconPosition?: 'right' | 'left'
 }
 
 export function ExternalLink({
   text,
-  direction = 'leftToRight',
   icon,
+  iconPosition = 'right',
   ...rest
 }: ExternalLinkProps) {
   return (
     <S.ExternalLinkContainer {...rest}>
-      {direction === 'leftToRight' ? (
+      {iconPosition === 'right' ? (
         <>
           {text}
           {icon}

@@ -28,7 +28,7 @@ export function Profile() {
             target="_blank"
             text="github"
             icon={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
-            direction="leftToRight"
+            iconPosition="right"
           />
         </header>
 
