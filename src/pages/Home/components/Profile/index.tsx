@@ -10,21 +10,48 @@ import { InfoWithIcon } from '../../../../components/InfoWithIcon'
 
 import * as S from './styles'
 import { ExternalLink } from '../../../../components/ExternalLink'
+import { useEffect, useState } from 'react'
+import { githubAPI } from '../../../../libs/githubAPI'
+
+export interface ProfileProps {
+  avatar_url: string
+  name: string
+  html_url: string
+  bio: string
+  login: string
+  followers: number
+  company: string
+}
 
 export function Profile() {
-  const imgAvatar = 'https://github.com/pabloxt14.png'
+  const [profileDatas, setProfileDatas] = useState<ProfileProps>(
+    {} as ProfileProps,
+  )
+
+  async function fetchProfileDatas() {
+    try {
+      const response = await githubAPI.get('/users/pabloxt14')
+      setProfileDatas(response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    fetchProfileDatas()
+  }, [])
 
   return (
     <S.ProfileContainer>
-      <S.ProfileAvatar src={imgAvatar} alt="" />
+      <S.ProfileAvatar src={profileDatas.avatar_url} alt="" />
 
       <S.ProfileDetails>
         <header>
           <TitleText size="xl" color="title">
-            Cameron Williamson
+            {profileDatas.name}
           </TitleText>
           <ExternalLink
-            href="https://github.com/pabloxt14"
+            href={profileDatas.html_url}
             target="_blank"
             text="github"
             icon={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
@@ -33,22 +60,22 @@ export function Profile() {
         </header>
 
         <RegularText color="text" size="m">
-          Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-          viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat
-          pulvinar vel mass.
+          {profileDatas.bio}
         </RegularText>
 
         <S.ProfileInfoContainer>
           <InfoWithIcon
-            text="cameronwll"
+            text={profileDatas.login}
             icon={<FontAwesomeIcon icon={faGithub} />}
           />
+          {profileDatas.company && (
+            <InfoWithIcon
+              text={profileDatas.company}
+              icon={<FontAwesomeIcon icon={faBuilding} />}
+            />
+          )}
           <InfoWithIcon
-            text="Rocketseat"
-            icon={<FontAwesomeIcon icon={faBuilding} />}
-          />
-          <InfoWithIcon
-            text="32 seguidores"
+            text={`${profileDatas.followers} seguidores`}
             icon={<FontAwesomeIcon icon={faUserGroup} />}
           />
         </S.ProfileInfoContainer>
