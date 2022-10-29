@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ProfileContainer = styled.div`
+export const ProfileContainer = styled.section`
   width: 100%;
   padding: 2rem 2.5rem;
   margin-bottom: 4.5rem;

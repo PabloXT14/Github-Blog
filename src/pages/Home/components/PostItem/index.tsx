@@ -11,7 +11,7 @@ interface PostItemProps {
 
 export function PostItem({ title, createdAt, description }: PostItemProps) {
   return (
-    <S.PostItemContainer to="/post">
+    <S.PostItemContainer to="/post/1">
       <S.PostItemTop>
         <TitleText as="h3" size="l" color="title" weight={700}>
           {title}

@@ -1,12 +1,10 @@
-import { NavLink } from 'react-router-dom'
+import * as S from './styles'
+import { PostHeader } from './components/PostHeader'
 
 export function Post() {
   return (
-    <div>
-      <h2>Post</h2>
-      <NavLink to="/" title="Home">
-        Go to Home
-      </NavLink>
-    </div>
+    <S.PostContainer className="container">
+      <PostHeader />
+    </S.PostContainer>
   )
 }
