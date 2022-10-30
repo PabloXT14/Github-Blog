@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { ExternalLink } from '../../../../components/ExternalLink'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -16,13 +16,17 @@ import { useTheme } from 'styled-components'
 
 export function PostHeader() {
   const { colors } = useTheme()
+  const navigate = useNavigate()
+
+  function goBack() {
+    navigate(-1) // volta para a rota anterior
+  }
 
   return (
     <S.PostHeaderContainer>
       <header>
         <ExternalLink
-          as={Link}
-          to="/"
+          onClick={goBack}
           icon={<FontAwesomeIcon icon={faChevronLeft} />}
           iconPosition="left"
           text="voltar"

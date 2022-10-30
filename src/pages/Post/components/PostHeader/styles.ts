@@ -27,5 +27,9 @@ export const PostHeaderContainer = styled.section`
     justify-content: flex-start;
     gap: 2rem;
     flex-wrap: wrap;
+
+    div {
+      line-height: 0px;
+    }
   }
 `

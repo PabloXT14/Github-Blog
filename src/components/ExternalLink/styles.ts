@@ -14,6 +14,7 @@ export const ExternalLinkContainer = styled.a`
   border-bottom: 1px solid transparent;
   height: 19px;
   line-height: 19px;
+  cursor: pointer;
 
   svg {
     width: 0.75rem;
