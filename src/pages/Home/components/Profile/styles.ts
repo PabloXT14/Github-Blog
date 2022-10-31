@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const ProfileContainer = styled.section`
   width: 100%;
+  min-height: 13.25rem;
   padding: 2rem 2.5rem;
   margin-bottom: 4.5rem;
   background: ${({ theme }) => theme.colors['base-profile']};

@@ -3,8 +3,10 @@ import { PostItem } from './components/PostItem'
 import { Profile } from './components/Profile'
 import { SearchForm } from './components/SearchForm'
 import { githubAPI } from '../../libs/githubAPI'
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 import * as S from './styles'
+import { Spinner } from '../../components/Spinner'
 
 const username = import.meta.env.VITE_GITHUB_USERNAME
 const repoName = import.meta.env.VITE_GITHUB_REPONAME
@@ -23,18 +25,19 @@ export interface IPost {
 
 export function Home() {
   const [posts, setPosts] = useState<IPost[]>([])
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoadingPosts, setIsLoadingPosts] = useState(false)
+  const [animationParent] = useAutoAnimate()
 
   const getPosts = useCallback(async (query: string = '') => {
     try {
-      setIsLoading(true)
+      setIsLoadingPosts(true)
       const response = await githubAPI.get(
         `/search/issues?q=${query}%20repo:${username}/${repoName}`,
       )
 
       setPosts(response.data.items)
     } finally {
-      setIsLoading(false)
+      setIsLoadingPosts(false)
     }
   }, [])
 
@@ -45,11 +48,11 @@ export function Home() {
   return (
     <S.HomeContainer className="container">
       <Profile />
-      <SearchForm />
+      <SearchForm getPosts={getPosts} postLength={posts.length} />
       <S.PostsPreviewContainer>
-        <ul>
-          {isLoading ? (
-            <p>Is Loading...</p>
+        <ul ref={animationParent}>
+          {isLoadingPosts ? (
+            <Spinner />
           ) : (
             posts.map((post) => {
               return <PostItem key={post.number} post={post} />

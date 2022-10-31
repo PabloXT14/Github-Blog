@@ -12,45 +12,46 @@ import { useCallback, useEffect, useState } from 'react'
 import { githubAPI } from '../../../../libs/githubAPI'
 
 import * as S from './styles'
+import { Spinner } from '../../../../components/Spinner'
 
 const username = import.meta.env.VITE_GITHUB_USERNAME
 
-export interface ProfileProps {
+export interface ProfileData {
+  login: string
+  bio: string
   avatar_url: string
   name: string
   html_url: string
-  bio: string
-  login: string
+  company?: string
   followers: number
-  company: string
 }
 
 export function Profile() {
-  const [profileDatas, setProfileDatas] = useState<ProfileProps>(
-    {} as ProfileProps,
+  const [profileDatas, setProfileDatas] = useState<ProfileData>(
+    {} as ProfileData,
   )
-  const [isLoadingUserData, setIsLoadingUserData] = useState(false)
+  const [isLoadingProfileData, setIsLoadingProfileData] = useState(false)
 
-  const fetchUserData = useCallback(async () => {
+  const fetchProfileData = useCallback(async () => {
     try {
-      setIsLoadingUserData(true)
+      setIsLoadingProfileData(true)
       const response = await githubAPI.get(`/users/${username}`)
       setProfileDatas(response.data)
     } catch (error) {
       console.log(error)
     } finally {
-      setIsLoadingUserData(false)
+      setIsLoadingProfileData(false)
     }
   }, [])
 
   useEffect(() => {
-    fetchUserData()
-  }, [fetchUserData])
+    fetchProfileData()
+  }, [fetchProfileData])
 
   return (
     <S.ProfileContainer>
-      {isLoadingUserData ? (
-        <p>Is Loading User Data...</p>
+      {isLoadingProfileData ? (
+        <Spinner />
       ) : (
         <>
           <S.ProfileAvatar src={profileDatas.avatar_url} alt="" />
