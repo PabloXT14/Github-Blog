@@ -1,7 +1,6 @@
-import { formatDistanceToNow } from 'date-fns'
-import ptBR from 'date-fns/locale/pt-BR'
 import { IPost } from '../..'
 import { TitleText } from '../../../../components/Typography'
+import { relativeDateDistanceToNow } from '../../../../utils/formatter'
 import * as S from './styles'
 
 interface PostItemProps {
@@ -9,18 +8,15 @@ interface PostItemProps {
 }
 
 export function PostItem({ post }: PostItemProps) {
+  const formattedDate = relativeDateDistanceToNow(post.created_at)
+
   return (
     <S.PostItemContainer to={`/post/${post.number}`}>
       <S.PostItemTop>
         <TitleText as="h3" size="l" color="title" weight={700}>
           {post.title}
         </TitleText>
-        <span>
-          {formatDistanceToNow(new Date(post.created_at), {
-            addSuffix: true,
-            locale: ptBR,
-          })}
-        </span>
+        <span>{formattedDate}</span>
       </S.PostItemTop>
 
       <S.PostItemContent>{post.body}</S.PostItemContent>

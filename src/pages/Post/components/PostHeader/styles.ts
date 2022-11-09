@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const PostHeaderContainer = styled.section`
   width: 100%;
+  min-height: 10.5rem;
   padding: 2rem;
   margin-bottom: 4.5rem;
   background: ${({ theme }) => theme.colors['base-profile']};

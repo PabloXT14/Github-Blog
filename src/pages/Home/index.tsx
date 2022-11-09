@@ -4,9 +4,9 @@ import { Profile } from './components/Profile'
 import { SearchForm } from './components/SearchForm'
 import { githubAPI } from '../../libs/githubAPI'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
+import { Spinner } from '../../components/Spinner'
 
 import * as S from './styles'
-import { Spinner } from '../../components/Spinner'
 
 const username = import.meta.env.VITE_GITHUB_USERNAME
 const repoName = import.meta.env.VITE_GITHUB_REPONAME

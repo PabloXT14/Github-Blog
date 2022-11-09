@@ -10,13 +10,31 @@ import {
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { TitleText } from '../../../../components/Typography'
 import { InfoWithIcon } from '../../../../components/InfoWithIcon'
+import { useTheme } from 'styled-components'
+import { IPost } from '../../../Home'
+import { Spinner } from '../../../../components/Spinner'
+import { formatDistanceToNow, parseISO } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
 
 import * as S from './styles'
-import { useTheme } from 'styled-components'
 
-export function PostHeader() {
+interface PostHeaderProps {
+  postData: IPost
+  isLoadingPostData: boolean
+}
+
+export function PostHeader({ postData, isLoadingPostData }: PostHeaderProps) {
   const { colors } = useTheme()
   const navigate = useNavigate()
+
+  // const dateToISOFormate = parseISO(postData?.created_at)
+
+  const formattedDate = formatDistanceToNow(new Date('2022-11-08'), {
+    addSuffix: true,
+    locale: ptBR,
+  })
+
+  console.log(formattedDate)
 
   function goBack() {
     navigate(-1) // volta para a rota anterior
@@ -24,44 +42,50 @@ export function PostHeader() {
 
   return (
     <S.PostHeaderContainer>
-      <header>
-        <ExternalLink
-          onClick={goBack}
-          icon={<FontAwesomeIcon icon={faChevronLeft} />}
-          iconPosition="left"
-          text="voltar"
-        />
+      {isLoadingPostData ? (
+        <Spinner />
+      ) : (
+        <>
+          <header>
+            <ExternalLink
+              onClick={goBack}
+              icon={<FontAwesomeIcon icon={faChevronLeft} />}
+              iconPosition="left"
+              text="voltar"
+            />
 
-        <ExternalLink
-          href="https://github.com/pabloxt14"
-          target="_blank"
-          icon={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
-          iconPosition="right"
-          text="ver no github"
-        />
-      </header>
+            <ExternalLink
+              href={postData?.html_url}
+              target="_blank"
+              icon={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
+              iconPosition="right"
+              text="ver no github"
+            />
+          </header>
 
-      <TitleText size="xl" color="title" weight={700}>
-        JavaScript data types and data structures
-      </TitleText>
+          <TitleText size="xl" color="title" weight={700}>
+            {postData?.title}
+          </TitleText>
 
-      <ul>
-        <InfoWithIcon
-          text="pabloxt14"
-          textColor={colors['base-span']}
-          icon={<FontAwesomeIcon icon={faGithub} />}
-        />
-        <InfoWithIcon
-          text="Há 1 dia"
-          textColor={colors['base-span']}
-          icon={<FontAwesomeIcon icon={faCalendarDay} />}
-        />
-        <InfoWithIcon
-          text={`${5} comentários`}
-          textColor={colors['base-span']}
-          icon={<FontAwesomeIcon icon={faComment} />}
-        />
-      </ul>
+          <ul>
+            <InfoWithIcon
+              text={postData?.user?.login}
+              textColor={colors['base-span']}
+              icon={<FontAwesomeIcon icon={faGithub} />}
+            />
+            <InfoWithIcon
+              text={postData?.created_at}
+              textColor={colors['base-span']}
+              icon={<FontAwesomeIcon icon={faCalendarDay} />}
+            />
+            <InfoWithIcon
+              text={`${postData.comments} comentários`}
+              textColor={colors['base-span']}
+              icon={<FontAwesomeIcon icon={faComment} />}
+            />
+          </ul>
+        </>
+      )}
     </S.PostHeaderContainer>
   )
 }
