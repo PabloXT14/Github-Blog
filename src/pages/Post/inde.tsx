@@ -5,6 +5,8 @@ import { useParams } from 'react-router-dom'
 import { githubAPI } from '../../libs/githubAPI'
 
 import * as S from './styles'
+import { PostContent } from './components/PostContent'
+import { Spinner } from '../../components/Spinner'
 
 const username = import.meta.env.VITE_GITHUB_USERNAME
 const repoName = import.meta.env.VITE_GITHUB_REPONAME
@@ -39,6 +41,11 @@ export function Post() {
   return (
     <S.PostContainer className="container">
       <PostHeader postData={postData} isLoadingPostData={isLoadingPostData} />
+      {isLoadingPostData ? (
+        <Spinner />
+      ) : (
+        <PostContent content={postData.body} />
+      )}
     </S.PostContainer>
   )
 }

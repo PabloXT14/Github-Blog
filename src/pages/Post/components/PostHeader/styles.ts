@@ -4,7 +4,6 @@ export const PostHeaderContainer = styled.section`
   width: 100%;
   min-height: 10.5rem;
   padding: 2rem;
-  margin-bottom: 4.5rem;
   background: ${({ theme }) => theme.colors['base-profile']};
   border-radius: 10px;
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);

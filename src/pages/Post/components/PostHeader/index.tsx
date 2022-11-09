@@ -13,7 +13,7 @@ import { InfoWithIcon } from '../../../../components/InfoWithIcon'
 import { useTheme } from 'styled-components'
 import { IPost } from '../../../Home'
 import { Spinner } from '../../../../components/Spinner'
-import { formatDistanceToNow, parseISO } from 'date-fns'
+import { formatDistanceToNow } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
 
 import * as S from './styles'
@@ -26,8 +26,6 @@ interface PostHeaderProps {
 export function PostHeader({ postData, isLoadingPostData }: PostHeaderProps) {
   const { colors } = useTheme()
   const navigate = useNavigate()
-
-  // const dateToISOFormate = parseISO(postData?.created_at)
 
   const formattedDate = formatDistanceToNow(new Date('2022-11-08'), {
     addSuffix: true,
