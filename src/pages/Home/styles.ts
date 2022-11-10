@@ -17,7 +17,7 @@ export const PostsPreviewContainer = styled.section`
     row-gap: 2rem;
 
     @media (max-width: 425px) {
-      grid-template-columns: repeat(1fr);
+      grid-template-columns: 100%;
     }
   }
 `
