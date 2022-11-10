@@ -13,10 +13,9 @@ import { InfoWithIcon } from '../../../../components/InfoWithIcon'
 import { useTheme } from 'styled-components'
 import { IPost } from '../../../Home'
 import { Spinner } from '../../../../components/Spinner'
-import { formatDistanceToNow } from 'date-fns'
-import ptBR from 'date-fns/locale/pt-BR'
 
 import * as S from './styles'
+import { relativeDateDistanceToNow } from '../../../../utils/formatter'
 
 interface PostHeaderProps {
   postData: IPost
@@ -27,16 +26,16 @@ export function PostHeader({ postData, isLoadingPostData }: PostHeaderProps) {
   const { colors } = useTheme()
   const navigate = useNavigate()
 
-  const formattedDate = formatDistanceToNow(new Date('2022-11-08'), {
-    addSuffix: true,
-    locale: ptBR,
-  })
-
-  console.log(formattedDate)
-
   function goBack() {
     navigate(-1) // volta para a rota anterior
   }
+
+  let formattedDate =
+    postData.created_at && relativeDateDistanceToNow(postData.created_at)
+
+  // Deixando primeira letra da string em maiúsculo
+  formattedDate =
+    formattedDate && formattedDate[0].toUpperCase() + formattedDate.substring(1)
 
   return (
     <S.PostHeaderContainer>
@@ -72,7 +71,7 @@ export function PostHeader({ postData, isLoadingPostData }: PostHeaderProps) {
               icon={<FontAwesomeIcon icon={faGithub} />}
             />
             <InfoWithIcon
-              text={postData?.created_at}
+              text={formattedDate}
               textColor={colors['base-span']}
               icon={<FontAwesomeIcon icon={faCalendarDay} />}
             />

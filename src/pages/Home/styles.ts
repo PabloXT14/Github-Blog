@@ -15,5 +15,9 @@ export const PostsPreviewContainer = styled.section`
     grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
     column-gap: 2rem;
     row-gap: 2rem;
+
+    @media (max-width: 425px) {
+      grid-template-columns: repeat(1fr);
+    }
   }
 `

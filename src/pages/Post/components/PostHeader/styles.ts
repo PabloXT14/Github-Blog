@@ -25,11 +25,11 @@ export const PostHeaderContainer = styled.section`
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 2rem;
+    gap: 1rem 2rem;
     flex-wrap: wrap;
 
     div {
-      line-height: 0px;
+      line-height: 160%;
     }
   }
 `

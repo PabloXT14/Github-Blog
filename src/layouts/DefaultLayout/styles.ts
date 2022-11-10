@@ -7,6 +7,6 @@ export const LayoutContainer = styled.div`
     margin-top: -5.5rem;
     margin-right: auto;
     margin-left: auto;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
   }
 `

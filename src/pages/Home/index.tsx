@@ -31,8 +31,9 @@ export function Home() {
   const getPosts = useCallback(async (query: string = '') => {
     try {
       setIsLoadingPosts(true)
+      //  SÓ MOSTRAR ISSUES COM A LABEL 'PUBLISHED' NESTE REPOSITÓRIO NO GITHUB
       const response = await githubAPI.get(
-        `/search/issues?q=${query}%20repo:${username}/${repoName}`,
+        `/search/issues?q=${query}%20label:published%20repo:${username}/${repoName}`,
       )
 
       setPosts(response.data.items)
