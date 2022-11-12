@@ -3,15 +3,17 @@
 </h1>
 
 <p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/pabloxt14/Github-Blog?color=#3294F8">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/pabloxt14/Github-Blog">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/pabloxt14/Github-Blog?color=#3294F8">
+  <img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/exodogurgel/Github-Blog" />
+
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/pabloxt14/Github-Blog">
   
   <a href="https://github.com/pabloxt14/Github-Blog/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/pabloxt14/Github-Blog?color=#3294F8">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/pabloxt14/Github-Blog">
   </a>
     
-   <img alt="License" src="https://img.shields.io/github/license/pabloxt14/Github-Blog?color=#3294F8">
+   <img alt="License" src="https://img.shields.io/github/license/pabloxt14/Github-Blog">
 
    <a href="https://github.com/pabloxt14/Github-Blog/stargazers">
     <img alt="Stargazers" src="https://img.shields.io/github/stars/pabloxt14/Github-Blog?style=social">
@@ -242,9 +244,9 @@ As seguintes ferramentas foram usadas na construção do projeto:
 2. Crie uma nova branch com as suas alterações: `git checkout -b my-feature`
 3. Salve as alterações e crie uma mensagem de commit contando o que você fez: `git commit -m "feature: My new feature"`
 4. Envie as suas alterações: `git push origin my-feature`
-> Caso tenha alguma dúvida confira este [guia de como contribuir no GitHub](./CONTRIBUTING.md) -->
+> Caso tenha alguma dúvida confira este [guia de como contribuir no GitHub](./CONTRIBUTING.md)
 
----
+--- -->
 
 ## 🦸 Author
 
