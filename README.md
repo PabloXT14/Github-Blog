@@ -32,6 +32,7 @@
  <a href="#-about">About</a> |
  <!-- <a href="#-funcionalidades">Funcionalidades</a> | -->
  <a href="#-layout">Layout</a> | 
+ <a href="#-deploy">Deploy</a> | 
  <a href="#-how-it-works">How It Works</a> | 
  <a href="#-technologies">Technologies</a> | 
  <!-- <a href="#-contribuidores">Contribuidores</a> |  -->
@@ -44,7 +45,7 @@
 
 O NLW Copa é uma aplicação com parte web, back-end e mobile, que tem como função a realização de bolões a respeito das partidas de jogos da copa do mundo, no qual esses bolões podem ser realizados entre conhecidos, amigos e até familiares.
 
-O Github Blog é uma aplicação web que tem como objetivo mostrar visualmente com um design e layout mais bem elaborado os dados do criador deste aplicação, além das `issues` presentes neste mesmo repositório no Github, permitindo também a pesquisa por `issues` específicas.
+O principal conceito treinado nesta aplicação foi a utilização de API em projetos React, no caso, a API do Github.
 
 O projeto foi desenvolvido como conclusão de um desafio do curso **Ignite** oferecida pela [Rocketseat](https://www.rocketseat.com.br/). O Ignite é um curso de especialização em stacks específicas amplamente utilizadas e valorizadas no mercado como React, React Native, Node.js e Elixir.
 
@@ -77,7 +78,7 @@ Você pode visualizar o layout do projeto através [desse link](https://www.figm
 ### Web
 
 <p align="center">
-  <img alt="Animated Web Demonstration" title="#Web" src=".github/images/animated-demonstration.png" width="100%">
+  <img alt="Animated Web Demonstration" title="#Web" src=".github/github_blog-demonstration.gif" width="100%">
 </p>
 
 <!-- ### Mobile
@@ -85,6 +86,12 @@ Você pode visualizar o layout do projeto através [desse link](https://www.figm
 <p align="center">
   <img alt="Layout Mobile Demonstration" title="#Mobile" src=".github/images/mobile-demonstration.png" width="100%">
 </p> -->
+
+---
+
+## 🔗 Deploy
+
+Para acessar o deploy do Website da aplicação basta clicar no link a seguir: [Link](https://github-blog-nu.vercel.app/)
 
 ---
 
