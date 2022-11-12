@@ -43,7 +43,7 @@
 
 ## 💻 About
 
-O NLW Copa é uma aplicação com parte web, back-end e mobile, que tem como função a realização de bolões a respeito das partidas de jogos da copa do mundo, no qual esses bolões podem ser realizados entre conhecidos, amigos e até familiares.
+O Github Blog é uma aplicação web que tem como objetivo mostrar visualmente com um design e layout mais bem elaborado os dados do criador deste aplicação, além das `issues` presentes neste mesmo repositório no Github, permitindo também a pesquisa por `issues` específicas.
 
 O principal conceito treinado nesta aplicação foi a utilização de API em projetos React, no caso, a API do Github.
 
