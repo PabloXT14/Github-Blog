@@ -5,7 +5,7 @@
 <p align="center">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/pabloxt14/Github-Blog">
 
-  <img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/exodogurgel/Github-Blog" />
+  <img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/pabloxt14/Github-Blog" />
 
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/pabloxt14/Github-Blog">
   
